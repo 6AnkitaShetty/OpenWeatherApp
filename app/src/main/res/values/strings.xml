@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">OpenWeatherApp</string>
+    <string name="add_city">Add Locations</string>
+    <string name="enter_city">Search location</string>
+    <string name="visibility">Visibility</string>
+    <string name="pressure">Pressure</string>
+    <string name="temp_celsius">%d \u2103 / %d \u2103 Feels like %d \u2103</string>
+    <string name="temp_degree">%d\u00B0</string>
+    <string name="mm_text">%d mm</string>
+    <string name="km_text">%d km</string>
+    <string name="kmph_text">%,.2f km/h</string>
+    <string name="percentage_text">%d \%%</string>
+    <string name="pressure_text">%d hPa</string>
+    <string name="description_weather_condition_icon">weather condition icon</string>
+    <string name="label_humidity">Humidity</string>
+    <string name="label_pressure">Pressure</string>
+    <string name="label_visibility">Visibility</string>
+    <string name="label_wind">Wind</string>
+    <string name="label_sunrise">Sunrise</string>
+    <string name="label_sunset">Sunset</string>
+    <string name="city_country_name">%s, %s</string>
+    <string name="unknown_error">Unknown error occurred</string>
+    <string name="empty_favorite_locations">Add your favorite locations to get weather information</string>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/HomeFragment">
+
+    <fragment
+        android:id="@+id/HomeFragment"
+        android:name="com.example.openweatherapp.presentation.ui.home.HomeFragment"
+        tools:layout="@layout/fragment_home">
+
+        <action
+            android:id="@+id/action_HomeFragment_to_LocationFragment"
+            app:destination="@id/LocationFragment" />
+        <action
+            android:id="@+id/action_HomeFragment_to_WeatherFragment"
+            app:destination="@id/WeatherFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/LocationFragment"
+        android:name="com.example.openweatherapp.presentation.ui.location.LocationFragment"
+        tools:layout="@layout/fragment_location">
+
+        <action
+            android:id="@+id/action_LocationFragment_to_HomeFragment"
+            app:destination="@id/HomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/WeatherFragment"
+        android:name="com.example.openweatherapp.presentation.ui.weather.WeatherFragment"
+        tools:layout="@layout/fragment_weather">
+        <argument
+            android:name="currentItem"
+            app:argType="com.example.openweatherapp.data.db.CityEntity" />
+    </fragment>
+</navigation>
