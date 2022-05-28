@@ -32,6 +32,10 @@ class WeatherFragment : Fragment() {
         binding.viewModel = viewModel
         val id = args.currentItem.cityId
         viewModel.getWeatherReport(id, API_KEY)
+        setUpObservers()
+    }
+
+    private fun setUpObservers() {
         viewModel.weatherReport.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Resource.Success -> {

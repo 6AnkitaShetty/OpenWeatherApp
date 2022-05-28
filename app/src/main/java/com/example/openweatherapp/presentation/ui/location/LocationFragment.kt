@@ -1,6 +1,5 @@
 package com.example.openweatherapp.presentation.ui.location
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -19,7 +18,7 @@ class LocationFragment : Fragment() {
     private lateinit var binding: FragmentLocationBinding
     private val viewModel: LocationViewModel by viewModels()
 
-    private val adapter = LocationsAdapter(arrayListOf())
+    private val adapter = LocationsAdapter()
     private var cityList = emptyList<City>()
 
     override fun onCreateView(
@@ -53,19 +52,18 @@ class LocationFragment : Fragment() {
                             cityList.filter {
                                 it.name.lowercase().contains(newText.toString().lowercase())
                             }
-                        submitList(list)
+                        adapter.differ.submitList(list)
                     }
                     return false
                 }
-
             }
         )
 
-        viewModel.bookMarkedLocationId.observe(viewLifecycleOwner) {
+        viewModel.bookMarkedLocation.observe(viewLifecycleOwner) {
             activity?.onBackPressed()
         }
 
-        viewModel.citiesList.observe(viewLifecycleOwner) {
+        viewModel.cities.observe(viewLifecycleOwner) {
             if (it != null) {
                 cityList = it
             }
@@ -78,12 +76,5 @@ class LocationFragment : Fragment() {
             viewModel.insertCity(city)
         }
     }
-
-    @SuppressLint("NotifyDataSetChanged")
-    private fun submitList(cities: List<City>) {
-        adapter.addData(cities)
-        adapter.notifyDataSetChanged()
-    }
-
 
 }

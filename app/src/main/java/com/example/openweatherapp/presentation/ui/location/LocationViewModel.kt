@@ -17,23 +17,23 @@ class LocationViewModel @Inject constructor(
     private val bookMarkedUseCase: BookMarkedUseCase
 ) : ViewModel() {
 
-    private val bookMarkedLocationIdLiveData = MutableLiveData<Long?>()
-    val bookMarkedLocationId: LiveData<Long?> = bookMarkedLocationIdLiveData
+    private val bookMarkedLocationLiveData = MutableLiveData<Long?>()
+    val bookMarkedLocation: LiveData<Long?> = bookMarkedLocationLiveData
 
-    private val citiesListLiveData = MutableLiveData<List<City>?>()
-    val citiesList: LiveData<List<City>?> = citiesListLiveData
+    private val citiesLiveData = MutableLiveData<List<City>?>()
+    val cities: LiveData<List<City>?> = citiesLiveData
 
     fun insertCity(city: City) {
         viewModelScope.launch {
             val id = bookMarkedUseCase.bookMarkCityUseCase.invoke(city)
-            bookMarkedLocationIdLiveData.postValue(id)
+            bookMarkedLocationLiveData.postValue(id)
         }
     }
 
     fun getCities() {
         viewModelScope.launch {
             val cities = getCitiesUseCase()
-            citiesListLiveData.postValue(cities)
+            citiesLiveData.postValue(cities)
         }
     }
 }
