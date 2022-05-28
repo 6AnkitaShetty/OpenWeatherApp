@@ -2,7 +2,7 @@
 OpenWeatherApp is an android app that lets you check the current weather for selected cities around the world using [Open Weather Map API](http://openweathermap.org/api).
 
 ## Architecture
-The app uses `MVVM(Model View View Model)`+ clean architecture design pattern. 
+The app uses `MVVM Clean Architecture` design pattern. 
 This provides better separation of concern, easier testing, lifecycle awareness, etc.
 
 ## Functionality
