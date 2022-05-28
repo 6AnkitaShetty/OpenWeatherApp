@@ -1,13 +1,13 @@
 package com.example.openweatherapp.domain.repository
 
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 
 interface BookMarkRepository {
-    suspend fun getCities(): List<CityEntity>
+    suspend fun getCities(): List<City>
 
-    suspend fun getCityById(id: Long): CityEntity?
+    suspend fun getCityById(id: Long): City?
 
-    suspend fun insertCity(cityEntity: CityEntity): Long?
+    suspend fun insertCity(city: City): Long?
 
-    suspend fun deleteCity(cityEntity: CityEntity)
+    suspend fun deleteCity(city: City)
 }

@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.openweatherapp.R
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 import com.example.openweatherapp.data.util.Resource
 import com.example.openweatherapp.databinding.FragmentHomeBinding
 import com.example.openweatherapp.presentation.adapter.BookMarkedCitiesAdapter
@@ -81,9 +81,9 @@ class HomeFragment : Fragment() {
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
-    private fun restoreDeletedData(view: View, deletedEntity: CityEntity, position: Int) {
+    private fun restoreDeletedData(view: View, deletedEntity: City, position: Int) {
         val snackBar = Snackbar.make(
-            view, "Deleted '${deletedEntity.cityName}'",
+            view, "Deleted '${deletedEntity.name}'",
             Snackbar.LENGTH_LONG
         )
         snackBar.setAction("Undo") {

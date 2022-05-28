@@ -32,6 +32,6 @@
         tools:layout="@layout/fragment_weather">
         <argument
             android:name="currentItem"
-            app:argType="com.example.openweatherapp.data.db.CityEntity" />
+            app:argType="com.example.openweatherapp.data.model.City" />
     </fragment>
 </navigation>

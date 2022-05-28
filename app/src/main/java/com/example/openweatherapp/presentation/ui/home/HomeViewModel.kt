@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 import com.example.openweatherapp.data.util.Resource
 import com.example.openweatherapp.domain.usecase.BookMarkedUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -16,8 +16,8 @@ class HomeViewModel @Inject constructor(
     private val bookMarkedUseCase: BookMarkedUseCase
 ) : ViewModel() {
 
-    private val bookMarkedLocationsLiveData = MutableLiveData<Resource<List<CityEntity>>>()
-    val bookMarkedLocations: LiveData<Resource<List<CityEntity>>> = bookMarkedLocationsLiveData
+    private val bookMarkedLocationsLiveData = MutableLiveData<Resource<List<City>>>()
+    val bookMarkedLocations: LiveData<Resource<List<City>>> = bookMarkedLocationsLiveData
 
     fun getBookMarkedCities() {
         viewModelScope.launch {
@@ -26,15 +26,15 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    fun deleteCity(cityEntity: CityEntity) {
+    fun deleteCity(city: City) {
         viewModelScope.launch {
-            bookMarkedUseCase.deleteCityUseCase.invoke(cityEntity)
+            bookMarkedUseCase.deleteCityUseCase.invoke(city)
         }
     }
 
-    fun insertCity(cityEntity: CityEntity) {
+    fun insertCity(city: City) {
         viewModelScope.launch {
-            bookMarkedUseCase.insertCityUseCase.invoke(cityEntity)
+            bookMarkedUseCase.insertCityUseCase.invoke(city)
         }
     }
 

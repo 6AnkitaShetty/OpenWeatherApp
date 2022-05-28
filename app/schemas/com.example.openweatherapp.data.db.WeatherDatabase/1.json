@@ -2,52 +2,46 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "858c48925a6a4f720e64197e1731cd0b",
+    "identityHash": "c6d73f55aae4825158fcb86dd219c1d8",
     "entities": [
       {
-        "tableName": "CityEntity",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`cityId` INTEGER NOT NULL, `cityName` TEXT, `state` TEXT, `country` TEXT, `lat` REAL NOT NULL, `lon` REAL NOT NULL, PRIMARY KEY(`cityId`))",
+        "tableName": "City",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `state` TEXT NOT NULL, `country` TEXT NOT NULL, `coord` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
-            "fieldPath": "cityId",
-            "columnName": "cityId",
+            "fieldPath": "id",
+            "columnName": "id",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "cityName",
-            "columnName": "cityName",
+            "fieldPath": "name",
+            "columnName": "name",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "state",
             "columnName": "state",
             "affinity": "TEXT",
-            "notNull": false
+            "notNull": true
           },
           {
             "fieldPath": "country",
             "columnName": "country",
             "affinity": "TEXT",
-            "notNull": false
-          },
-          {
-            "fieldPath": "lat",
-            "columnName": "lat",
-            "affinity": "REAL",
             "notNull": true
           },
           {
-            "fieldPath": "lon",
-            "columnName": "lon",
-            "affinity": "REAL",
+            "fieldPath": "coord",
+            "columnName": "coord",
+            "affinity": "TEXT",
             "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "cityId"
+            "id"
           ],
           "autoGenerate": false
         },
@@ -58,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '858c48925a6a4f720e64197e1731cd0b')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'c6d73f55aae4825158fcb86dd219c1d8')"
     ]
   }
 }

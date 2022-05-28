@@ -7,7 +7,7 @@ import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import com.bumptech.glide.Glide
 import com.example.openweatherapp.R
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 import com.example.openweatherapp.data.model.WeatherResponse
 import com.example.openweatherapp.data.util.Util.unixTimestampToDateTimeString
 import com.example.openweatherapp.data.util.Util.unixTimestampToTimeString
@@ -75,10 +75,10 @@ fun setCityAndCountry(textView: TextView, response: WeatherResponse?) {
 }
 
 @BindingAdapter("location")
-fun setLocation(textView: TextView, currentEntity: CityEntity) {
+fun setLocation(textView: TextView, currentEntity: City) {
     textView.text = textView.context.getString(
         R.string.city_country_name,
-        currentEntity.cityName,
+        currentEntity.name,
         currentEntity.country
     )
 }
@@ -93,7 +93,7 @@ fun navigateToLocationFragment(view: FloatingActionButton, navigate: Boolean) {
 }
 
 @BindingAdapter("android:sendDataToWeatherFragment")
-fun sendDataToWeatherFragment(view: ConstraintLayout, currentEntity: CityEntity) {
+fun sendDataToWeatherFragment(view: ConstraintLayout, currentEntity: City) {
     view.setOnClickListener {
         val action = HomeFragmentDirections.actionHomeFragmentToWeatherFragment(currentEntity)
         view.findNavController().navigate(action)

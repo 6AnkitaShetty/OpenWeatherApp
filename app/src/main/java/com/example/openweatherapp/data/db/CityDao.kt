@@ -1,19 +1,20 @@
 package com.example.openweatherapp.data.db
 
 import androidx.room.*
+import com.example.openweatherapp.data.model.City
 
 @Dao
 interface CityDao {
 
-    @Query("SELECT * FROM CityEntity")
-    suspend fun getCities(): List<CityEntity>
+    @Query("SELECT * FROM City")
+    suspend fun getCities(): List<City>
 
-    @Query("SELECT * FROM CityEntity WHERE cityId=:id")
-    suspend fun getCityById(id: Long): CityEntity?
+    @Query("SELECT * FROM City WHERE id=:id")
+    suspend fun getCityById(id: Long): City?
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertCity(cityEntity: CityEntity): Long?
+    suspend fun insertCity(city: City): Long?
 
     @Delete
-    suspend fun deleteCity(cityEntity: CityEntity)
+    suspend fun deleteCity(city: City)
 }

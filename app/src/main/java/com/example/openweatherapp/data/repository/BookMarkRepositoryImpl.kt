@@ -1,26 +1,26 @@
 package com.example.openweatherapp.data.repository
 
 import com.example.openweatherapp.data.db.CityDao
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 import com.example.openweatherapp.domain.repository.BookMarkRepository
 
 class BookMarkRepositoryImpl(
     private val cityDao: CityDao
 ) : BookMarkRepository {
-    override suspend fun getCities(): List<CityEntity> {
+    override suspend fun getCities(): List<City> {
         return cityDao.getCities()
     }
 
-    override suspend fun getCityById(id: Long): CityEntity? {
+    override suspend fun getCityById(id: Long): City? {
         return cityDao.getCityById(id)
     }
 
-    override suspend fun insertCity(cityEntity: CityEntity): Long? {
-        return cityDao.insertCity(cityEntity)
+    override suspend fun insertCity(city: City): Long? {
+        return cityDao.insertCity(city)
     }
 
-    override suspend fun deleteCity(cityEntity: CityEntity) {
-        cityDao.deleteCity(cityEntity)
+    override suspend fun deleteCity(city: City) {
+        cityDao.deleteCity(city)
     }
 
 }

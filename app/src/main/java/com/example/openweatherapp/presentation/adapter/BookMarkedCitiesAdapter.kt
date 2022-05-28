@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.openweatherapp.data.db.CityEntity
+import com.example.openweatherapp.data.model.City
 import com.example.openweatherapp.databinding.ItemBookmarkedCityLayoutBinding
 
 class BookMarkedCitiesAdapter :
@@ -13,18 +13,18 @@ class BookMarkedCitiesAdapter :
 
     inner class BookMarkedCitiesAdapterViewHolder(private val binding: ItemBookmarkedCityLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(entity: CityEntity) {
+        fun bind(entity: City) {
             binding.model = entity
             binding.executePendingBindings()
         }
     }
 
-    private val differCallback = object : DiffUtil.ItemCallback<CityEntity>() {
-        override fun areItemsTheSame(oldEntity: CityEntity, newEntity: CityEntity): Boolean {
-            return oldEntity.cityId == newEntity.cityId
+    private val differCallback = object : DiffUtil.ItemCallback<City>() {
+        override fun areItemsTheSame(oldEntity: City, newEntity: City): Boolean {
+            return oldEntity.id == newEntity.id
         }
 
-        override fun areContentsTheSame(oldEntity: CityEntity, newEntity: CityEntity): Boolean {
+        override fun areContentsTheSame(oldEntity: City, newEntity: City): Boolean {
             return oldEntity == newEntity
         }
     }

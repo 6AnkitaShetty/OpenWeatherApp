@@ -5,7 +5,7 @@
 
         <variable
             name="model"
-            type="com.example.openweatherapp.data.db.CityEntity" />
+            type="com.example.openweatherapp.data.model.City" />
 
     </data>
 
