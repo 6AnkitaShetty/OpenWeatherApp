@@ -46,12 +46,12 @@ fun setDescriptionText(textView: TextView, model: WeatherResponse?) {
 
 @BindingAdapter("timeText")
 fun setTimeText(textView: TextView, time: Int) {
-    textView.text =time.unixTimestampToTimeString()
+    textView.text = time.unixTimestampToTimeString()
 }
 
 @BindingAdapter("dateTimeText")
 fun setDateTimeText(textView: TextView, time: Int) {
-    textView.text =time.unixTimestampToDateTimeString()
+    textView.text = time.unixTimestampToDateTimeString()
 }
 
 @BindingAdapter("displayImage")
@@ -67,22 +67,26 @@ fun ImageView.setDisplayImage(response: WeatherResponse?) {
 }
 
 @BindingAdapter("cityAndCountry")
-fun setCityAndCountry(textView: TextView,response: WeatherResponse?) {
+fun setCityAndCountry(textView: TextView, response: WeatherResponse?) {
     response?.let {
-        textView.text =textView.context.getString(R.string.city_country_name, it.name,it.sys.country)
+        textView.text =
+            textView.context.getString(R.string.city_country_name, it.name, it.sys.country)
     }
 }
 
 @BindingAdapter("location")
-fun setLocation(textView: TextView,currentEntity: CityEntity) {
-    textView.text =textView.context.getString(R.string.city_country_name, currentEntity.cityName,currentEntity.country)
-
+fun setLocation(textView: TextView, currentEntity: CityEntity) {
+    textView.text = textView.context.getString(
+        R.string.city_country_name,
+        currentEntity.cityName,
+        currentEntity.country
+    )
 }
 
 @BindingAdapter("android:navigateToLocationFragment")
-fun navigateToLocationFragment(view: FloatingActionButton, navigate: Boolean){
+fun navigateToLocationFragment(view: FloatingActionButton, navigate: Boolean) {
     view.setOnClickListener {
-        if(navigate){
+        if (navigate) {
             view.findNavController().navigate(R.id.action_HomeFragment_to_LocationFragment)
         }
     }

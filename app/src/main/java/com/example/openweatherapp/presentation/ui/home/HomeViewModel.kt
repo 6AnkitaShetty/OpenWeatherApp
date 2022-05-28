@@ -14,20 +14,20 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val bookMarkedUseCase: BookMarkedUseCase
-): ViewModel() {
+) : ViewModel() {
 
     private val bookMarkedLocationsLiveData = MutableLiveData<Resource<List<CityEntity>>>()
     val bookMarkedLocations: LiveData<Resource<List<CityEntity>>> = bookMarkedLocationsLiveData
 
-    fun getBookMarkedCities(){
+    fun getBookMarkedCities() {
         viewModelScope.launch {
-            val cities =  bookMarkedUseCase.getBokMarkedCitiesUseCase.invoke()
+            val cities = bookMarkedUseCase.getBokMarkedCitiesUseCase.invoke()
             bookMarkedLocationsLiveData.postValue(Resource.Success(cities))
         }
     }
 
     fun deleteCity(cityEntity: CityEntity) {
-        viewModelScope.launch{
+        viewModelScope.launch {
             bookMarkedUseCase.deleteCityUseCase.invoke(cityEntity)
         }
     }

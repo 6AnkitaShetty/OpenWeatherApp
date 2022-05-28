@@ -13,4 +13,4 @@ data class CityEntity(
     val country: String? = null,
     val lat: Double,
     val lon: Double
-): Serializable
+) : Serializable

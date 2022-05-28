@@ -16,13 +16,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@drawable/detail_background">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintMain"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/detail_background">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:id="@+id/tv_city_country"

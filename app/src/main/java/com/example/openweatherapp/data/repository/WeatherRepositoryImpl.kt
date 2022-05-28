@@ -9,6 +9,7 @@ import retrofit2.Response
 class WeatherRepositoryImpl(
     private val weatherAPIService: WeatherAPIService
 ) : WeatherRepository {
+
     override suspend fun getWeatherReport(id: Long, apiKey: String): Resource<WeatherResponse> {
         return responseToResource(weatherAPIService.getWeather(id, apiKey))
     }
@@ -21,4 +22,5 @@ class WeatherRepositoryImpl(
         }
         return Resource.Error(response.message())
     }
+
 }

@@ -30,10 +30,15 @@ class LocationFragment : Fragment() {
         binding.toolbarHome.setNavigationOnClickListener {
             activity?.onBackPressed()
         }
-        setAdapter()
-        setUpObservers()
         return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setAdapter()
+        setUpObservers()
+    }
+
     private fun setUpObservers() {
         binding.searchLocations.setOnQueryTextListener(
             object : SearchView.OnQueryTextListener {
@@ -45,7 +50,9 @@ class LocationFragment : Fragment() {
                     viewModel.getCities()
                     if (cityList.isNotEmpty()) {
                         val list =
-                            cityList.filter { it.name.lowercase().contains(newText.toString().lowercase()) }
+                            cityList.filter {
+                                it.name.lowercase().contains(newText.toString().lowercase())
+                            }
                         submitList(list)
                     }
                     return false

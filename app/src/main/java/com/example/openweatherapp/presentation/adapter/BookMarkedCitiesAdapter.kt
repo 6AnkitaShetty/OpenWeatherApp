@@ -8,7 +8,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.openweatherapp.data.db.CityEntity
 import com.example.openweatherapp.databinding.ItemBookmarkedCityLayoutBinding
 
-class BookMarkedCitiesAdapter : RecyclerView.Adapter<BookMarkedCitiesAdapter.BookMarkedCitiesAdapterViewHolder>() {
+class BookMarkedCitiesAdapter :
+    RecyclerView.Adapter<BookMarkedCitiesAdapter.BookMarkedCitiesAdapterViewHolder>() {
 
     inner class BookMarkedCitiesAdapterViewHolder(private val binding: ItemBookmarkedCityLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -30,7 +31,10 @@ class BookMarkedCitiesAdapter : RecyclerView.Adapter<BookMarkedCitiesAdapter.Boo
 
     val differ = AsyncListDiffer(this, differCallback)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookMarkedCitiesAdapterViewHolder {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): BookMarkedCitiesAdapterViewHolder {
         val binding =
             ItemBookmarkedCityLayoutBinding.inflate(
                 LayoutInflater.from(parent.context),

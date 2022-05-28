@@ -35,9 +35,9 @@ class WeatherFragment : Fragment() {
         viewModel.weatherReport.observe(viewLifecycleOwner) { result ->
             when (result) {
                 is Resource.Success -> {
-                     binding.constraintMain.visibility = View.VISIBLE
-                     binding.tvErrorMessage.visibility = View.GONE
-                     binding.progressBar.visibility = View.GONE
+                    binding.constraintMain.visibility = View.VISIBLE
+                    binding.tvErrorMessage.visibility = View.GONE
+                    binding.progressBar.visibility = View.GONE
                     val report = result.data
                     if (report != null) {
                         binding.model = report
@@ -46,7 +46,7 @@ class WeatherFragment : Fragment() {
                 is Resource.Error -> {
                     binding.constraintMain.visibility = View.GONE
                     binding.progressBar.visibility = View.GONE
-                   binding.tvErrorMessage.visibility = View.VISIBLE
+                    binding.tvErrorMessage.visibility = View.VISIBLE
                 }
             }
         }

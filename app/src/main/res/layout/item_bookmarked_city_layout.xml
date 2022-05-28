@@ -34,10 +34,10 @@
                 android:layout_marginStart="@dimen/dp_8"
                 android:layout_marginEnd="@dimen/dp_8"
                 android:padding="@dimen/dp_8"
-                app:location="@{model}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_18"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:location="@{model}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

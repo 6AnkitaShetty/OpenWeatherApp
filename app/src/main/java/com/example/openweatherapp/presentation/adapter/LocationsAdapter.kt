@@ -23,7 +23,7 @@ class LocationsAdapter(
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):DataViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val binding =
             ItemCityLayoutBinding.inflate(
                 LayoutInflater.from(parent.context),

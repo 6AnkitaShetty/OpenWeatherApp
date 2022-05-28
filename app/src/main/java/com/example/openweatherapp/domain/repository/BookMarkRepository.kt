@@ -10,5 +10,4 @@ interface BookMarkRepository {
     suspend fun insertCity(cityEntity: CityEntity): Long?
 
     suspend fun deleteCity(cityEntity: CityEntity)
-
 }

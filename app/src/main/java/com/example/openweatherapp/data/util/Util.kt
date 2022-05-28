@@ -9,11 +9,11 @@ object Util {
         return temp - 273.15
     }
 
-    fun Int.unixTimestampToDateTimeString() : String {
+    fun Int.unixTimestampToDateTimeString(): String {
 
         try {
             val calendar = Calendar.getInstance()
-            calendar.timeInMillis = this*1000.toLong()
+            calendar.timeInMillis = this * 1000.toLong()
 
             val outputDateFormat = SimpleDateFormat("dd MMM, yyyy - hh:mm a", Locale.ENGLISH)
             outputDateFormat.timeZone = TimeZone.getDefault() // user's default time zone
@@ -26,11 +26,11 @@ object Util {
         return this.toString()
     }
 
-    fun Int.unixTimestampToTimeString() : String {
+    fun Int.unixTimestampToTimeString(): String {
 
         try {
             val calendar = Calendar.getInstance()
-            calendar.timeInMillis = this*1000.toLong()
+            calendar.timeInMillis = this * 1000.toLong()
 
             val outputDateFormat = SimpleDateFormat("hh:mm a", Locale.ENGLISH)
             outputDateFormat.timeZone = TimeZone.getDefault()

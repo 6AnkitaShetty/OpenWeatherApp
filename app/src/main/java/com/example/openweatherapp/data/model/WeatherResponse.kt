@@ -1,6 +1,6 @@
 package com.example.openweatherapp.data.model
 
-data class WeatherResponse (
+data class WeatherResponse(
     val base: String,
     val clouds: Clouds,
     val cod: Int,

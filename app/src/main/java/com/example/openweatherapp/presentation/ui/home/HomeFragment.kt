@@ -30,10 +30,15 @@ class HomeFragment : Fragment() {
     ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = this
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         viewModel.getBookMarkedCities()
         setAdapter()
         setUpObservers()
-        return binding.root
     }
 
     private fun setUpObservers() {
@@ -65,18 +70,19 @@ class HomeFragment : Fragment() {
     private fun swipeToDelete(recyclerView: RecyclerView) {
         val swipeToDeleteCallback = object : SwipeToDelete() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val deletedItem = bookMarkedCitiesAdapter.differ.currentList[viewHolder.adapterPosition]
+                val deletedItem =
+                    bookMarkedCitiesAdapter.differ.currentList[viewHolder.adapterPosition]
                 // Delete Item
                 viewModel.deleteCity(deletedItem)
                 // Restore Deleted Item
-                restoreDeletedData(viewHolder.itemView, deletedItem,viewHolder.adapterPosition)
+                restoreDeletedData(viewHolder.itemView, deletedItem, viewHolder.adapterPosition)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
         itemTouchHelper.attachToRecyclerView(recyclerView)
     }
 
-    private fun restoreDeletedData(view: View, deletedEntity: CityEntity, position:Int) {
+    private fun restoreDeletedData(view: View, deletedEntity: CityEntity, position: Int) {
         val snackBar = Snackbar.make(
             view, "Deleted '${deletedEntity.cityName}'",
             Snackbar.LENGTH_LONG
