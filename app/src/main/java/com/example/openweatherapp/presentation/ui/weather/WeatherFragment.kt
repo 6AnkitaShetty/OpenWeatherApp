@@ -30,6 +30,7 @@ class WeatherFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.viewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
         val id = args.currentItem.id
         viewModel.getWeatherReport(id, API_KEY)
         setUpObservers()
